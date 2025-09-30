@@ -1,564 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- NEW: Meta Description for Search Engines and Social Sharing -->
-    <meta name="description" content="No. 1 food vendor in Ota, Ogun State. 3BEE serves authentic, budget-friendly Nigerian meals: Jollof, Amala, Soups, and Ready-to-Go Bowls. Order via WhatsApp.">
-    <title>3BEE 🐝 Restaurants & Bakery - Official Menu</title>
-    <!-- Load Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Custom Font Import */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f7f7f7; /* Light gray background */
-        }
-        .menu-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
-        }
-        /* Custom utility for smooth scrolling to anchors */
-        html {
-            scroll-behavior: smooth;
-        }
-        /* Ensure mobile nav items don't wrap and are sized appropriately */
-        #mobile-nav .flex > a {
-            flex: 1;
-            min-width: 0;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3BEE Restaurant & Bakery</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 
-        /* Styles for the simple image carousel/gallery */
-        .gallery-container {
-            position: relative;
-            max-width: 1200px;
-            margin: auto;
-        }
-        .gallery-image {
-            display: none;
-            width: 100%;
-            height: 48vh; /* Fluid height for visual appeal */
-            object-fit: cover;
-            border-radius: 1rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-        }
-        .gallery-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 0.5rem;
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            text-align: center;
-            border-bottom-left-radius: 1rem;
-            border-bottom-right-radius: 1rem;
-        }
-        
-    </style>
+  <!-- SEO & Social Sharing -->
+  <meta name="description" content="Authentic Nigerian meals in Ota, Ogun State. Order Jollof, Amala, Soups, Bowls & more via WhatsApp.">
+  <meta property="og:title" content="3BEE Restaurant & Bakery - Official Menu">
+  <meta property="og:description" content="Delicious Nigerian meals in Ota, Ogun State. Order via WhatsApp today!">
+  <meta property="og:image" content="images/preview.jpg">
+  <meta property="og:url" content="https://yourwebsite.com">
+  <meta name="twitter:card" content="summary_large_image">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 </head>
-<body class="antialiased">
+<body class="bg-gray-50 text-gray-900">
 
-    <!-- Tailwind Config for Theme Colors -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'primary': '#DC2626', /* Red-600 */
-                        'secondary': '#FBBF24', /* Amber-400 */
-                        'background': '#f7f7f7',
-                        'card': '#ffffff',
-                    }
-                }
-            }
-        }
-    </script>
+  <!-- Header -->
+  <header class="fixed w-full top-0 left-0 bg-white shadow-md z-50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3 md:py-4">
+      
+      <!-- Logo -->
+      <a href="#hero" class="flex items-center space-x-2">
+        <img src="images/logo.png" alt="3BEE Restaurant Logo" class="h-10 w-10 object-contain">
+        <span class="hidden md:inline-block font-bold text-lg text-red-600">3BEE Restaurant & Bakery</span>
+      </a>
 
-    <!-- Fixed Header for Navigation (Mobile/Desktop) -->
-    <header class="sticky top-0 z-50 bg-white shadow-md">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <!-- RESTAURANT NAME -->
-            <h1 class="text-2xl font-extrabold text-primary tracking-tight">
-                3BEE 🐝 <span class="text-secondary">Restaurants & Bakery</span>
-            </h1>
-            
-            <!-- Desktop Navigation Links -->
-            <nav class="hidden md:flex space-x-6">
-                <a href="#regular" class="text-gray-600 hover:text-primary font-medium transition duration-150 ease-in-out">Regular</a>
-                <a href="#proteins" class="text-gray-600 hover:text-primary font-medium transition duration-150 ease-in-out">Proteins</a>
-                <a href="#bowls" class="text-gray-600 hover:text-primary font-medium transition duration-150 ease-in-out">Bowls</a>
-                <a href="#soup" class="text-gray-600 hover:text-primary font-medium transition duration-150 ease-in-out">Soups & Swallow</a>
-                <a href="#drinks" class="text-gray-600 hover:text-primary font-medium transition duration-150 ease-in-out">Drinks</a>
-            </nav>
-            
-            <!-- Order via WhatsApp Button (Desktop) -->
-            <a href="https://wa.me/2348124357977" target="_blank" class="hidden md:inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-green-500 hover:bg-green-600 transition duration-150 ease-in-out">
-                Order via WhatsApp
-            </a>
-        </div>
-    </header>
+      <!-- Hamburger (Mobile) -->
+      <button id="menu-toggle" class="md:hidden text-gray-800 text-2xl focus:outline-none">
+        ☰
+      </button>
 
-    <!-- Main Content Container -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
-        
-        <!-- Hero Section -->
-        <section class="text-center mb-8">
-            <p class="text-lg text-secondary font-semibold uppercase tracking-wider">Serving Authentic Nigerian Meals</p>
-            <h2 class="text-4xl sm:text-5xl font-extrabold text-gray-800 mt-2">
-                3BEE Menu & Price List
-            </h2>
-            <!-- Operating Hours & CTA Link -->
-            <div class="mt-3 inline-flex items-center space-x-4 bg-primary text-white p-2 px-4 rounded-full shadow-lg">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                <p class="text-sm font-semibold">Mon - Sat: 8:00 AM - 8:00 PM</p>
-            </div>
-            <p class="mt-4 text-xl text-gray-500 max-w-2xl mx-auto">
-                No. 1 food vendor and catering service, bringing the comfort of home to your plate.
-            </p>
-        </section>
+      <!-- Nav Links (Desktop) -->
+      <nav id="nav-links" class="hidden md:flex space-x-6 text-gray-800 font-medium">
+        <a href="#hero" class="hover:text-red-600">Home</a>
+        <a href="#about" class="hover:text-red-600">About</a>
+        <a href="#regular" class="hover:text-red-600">Menu</a>
+        <a href="#gallery" class="hover:text-red-600">Gallery</a>
+        <a href="#testimonials" class="hover:text-red-600">Testimonials</a>
+        <a href="#contact" class="hover:text-red-600">Contact</a>
+      </nav>
+    </div>
 
-        <!-- Restaurant Image Gallery (Updated to include Dine-in Image) -->
-        <section class="mb-12">
-            <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">Come Dine With Us!</h3>
-            <div class="gallery-container rounded-xl overflow-hidden shadow-2xl">
-                <!-- Gallery Image 1: Dine-in Interior -->
-                <img 
-                    id="gallery-img-1" 
-                    src="uploaded:1000276873.jpg-94554b35-8a44-420b-90fe-4d73ab73871b" 
-                    alt="Cozy Dine-in Restaurant Interior at 3BEE" 
-                    class="gallery-image"
-                >
-                <div id="gallery-cap-1" class="gallery-caption">Enjoy fresh meals served in a cozy indoor dining setting.</div>
-                
-                <!-- Gallery Image 2: Restaurant Front/Exterior -->
-                <img 
-                    id="gallery-img-2" 
-                    src="https://placehold.co/1200x400/DC2626/FFFFFF?text=3BEE+Restaurant+Front" 
-                    alt="Exterior view of 3BEE Restaurants & Bakery" 
-                    class="gallery-image"
-                >
-                <div id="gallery-cap-2" class="gallery-caption">Welcome to 3BEE, your favorite spot in Ota!</div>
+    <!-- Mobile Dropdown -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md px-4 py-2 space-y-2">
+      <a href="#hero" class="block hover:text-red-600">Home</a>
+      <a href="#about" class="block hover:text-red-600">About</a>
+      <a href="#regular" class="block hover:text-red-600">Menu</a>
+      <a href="#gallery" class="block hover:text-red-600">Gallery</a>
+      <a href="#testimonials" class="block hover:text-red-600">Testimonials</a>
+      <a href="#contact" class="block hover:text-red-600">Contact</a>
+    </div>
+  </header>
 
-                <!-- JavaScript for Gallery/Carousel -->
-                <script>
-                    let currentGalleryIndex = 0;
-                    const images = document.querySelectorAll('.gallery-image');
-                    const captions = document.querySelectorAll('.gallery-caption');
-                    const totalImages = images.length;
+  <!-- Hero Section -->
+  <section id="hero" class="h-screen flex items-center justify-center bg-cover bg-center text-center" style="background-image: url('images/hero.jpg');">
+    <div class="bg-black bg-opacity-50 p-8 rounded-xl">
+      <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">Welcome to 3BEE 🍴</h1>
+      <p class="text-lg md:text-xl text-gray-200">Authentic Nigerian Flavors in Ota, Ogun State</p>
+      <a href="#regular" class="mt-6 inline-block px-6 py-3 text-lg font-semibold bg-yellow-400 text-gray-900 rounded-full shadow-md hover:bg-yellow-500 transition">
+        View Menu
+      </a>
+    </div>
+  </section>
 
-                    function showGalleryImage(index) {
-                        images.forEach(img => img.style.display = 'none');
-                        captions.forEach(cap => cap.style.display = 'none');
-                        
-                        images[index].style.display = 'block';
-                        captions[index].style.display = 'block';
-                    }
+  <!-- About -->
+  <section id="about" class="max-w-6xl mx-auto px-4 py-16 text-center">
+    <h2 class="text-3xl font-bold text-red-600 mb-6">About Us</h2>
+    <p class="text-lg text-gray-700 leading-relaxed">
+      At 3BEE Restaurant & Bakery, we serve freshly made Nigerian delicacies that bring family and friends together. From our signature Jollof Rice to traditional soups and baked treats, every meal is crafted with love and quality ingredients.
+    </p>
+  </section>
 
-                    function nextGalleryImage() {
-                        currentGalleryIndex = (currentGalleryIndex + 1) % totalImages;
-                        showGalleryImage(currentGalleryIndex);
-                    }
-
-                    // Show the first image immediately
-                    if (totalImages > 0) {
-                        showGalleryImage(0);
-                    }
-                    
-                    // Set an automatic timer to cycle images every 4 seconds
-                    setInterval(nextGalleryImage, 4000); 
-                </script>
-            </div>
-        </section>
-
-
-        <!-- Floating WhatsApp Button (Mobile/Desktop) - LOGO INCLUDED -->
-        <a href="https://wa.me/2348124357977" target="_blank" class="fixed bottom-20 right-4 md:bottom-8 md:right-8 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl transition duration-300 transform hover:scale-105 flex items-center justify-center space-x-2">
-            <!-- 3BEE Logo Image -->
-            <img 
-                src="uploaded:1000275908.jpg-7348dcf9-88e2-4846-89b4-0ba264972a3e" 
-                alt="3BEE Logo" 
-                class="w-8 h-8 md:w-10 md:h-10 object-contain bg-secondary p-1 rounded-full flex-shrink-0"
-                onerror="this.onerror=null; this.src='https://placehold.co/40x40/FBBF24/DC2626?text=3BEE';" 
-            >
-            <span class="hidden sm:inline font-semibold">Order Now</span>
+  <!-- Menu -->
+  <section id="regular" class="max-w-6xl mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold text-center text-red-600 mb-10">Our Menu</h2>
+    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- Example Menu Card -->
+      <div class="bg-white rounded-xl shadow-md p-4 flex flex-col items-center">
+        <img src="images/jollof.jpg" alt="Jollof Rice" loading="lazy" class="w-full h-40 object-cover rounded-md mb-4">
+        <h3 class="font-semibold text-lg">Jollof Rice</h3>
+        <p class="text-gray-600">₦2000</p>
+        <a href="https://wa.me/2348124357977?text=I%20want%20to%20order%20Jollof%20Rice" 
+           class="mt-3 inline-block px-3 py-1 text-sm font-medium bg-red-600 text-white rounded-full hover:bg-red-700">
+           + Order
         </a>
+      </div>
 
+      <!-- Add more dishes as needed -->
+      <div class="bg-white rounded-xl shadow-md p-4 flex flex-col items-center">
+        <img src="images/amala.jpg" alt="Amala with Soup" loading="lazy" class="w-full h-40 object-cover rounded-md mb-4">
+        <h3 class="font-semibold text-lg">Amala with Soup</h3>
+        <p class="text-gray-600">₦2500</p>
+        <a href="https://wa.me/2348124357977?text=I%20want%20to%20order%20Amala%20with%20Soup" 
+           class="mt-3 inline-block px-3 py-1 text-sm font-medium bg-red-600 text-white rounded-full hover:bg-red-700">
+           + Order
+        </a>
+      </div>
+    </div>
+  </section>
 
-        <!-- Floating Mobile Navigation Bar -->
-        <div id="mobile-nav" class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-40 shadow-2xl">
-            <div class="flex justify-around py-3">
-                <a href="#regular" class="flex flex-col items-center text-xs text-gray-700 hover:text-primary transition-colors px-1">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c1.657 0 3 .895 3 2s-1.343 2-3 2-3 .895-3 2-1.343 2-3 2M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    <span class="mt-1">Staples</span>
-                </a>
-                <a href="#proteins" class="flex flex-col items-center text-xs text-gray-700 hover:text-primary transition-colors px-1">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5a2 2 0 00-2 2v2a2 2 0 002 2h14a2 2 0 002-2v-2a2 2 0 00-2-2zM7 7h10M7 3h10M4 21h16"/></svg>
-                    <span class="mt-1">Proteins</span>
-                </a>
-                <a href="#bowls" class="flex flex-col items-center text-xs text-gray-700 hover:text-primary transition-colors px-1">
-                    <!-- Icon representing a bowl/container -->
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 13v-1a4 4 0 014-4h.01M8 13v-1a4 4 0 004-4h.01M16 13v-1a4 4 0 00-4-4h-.01m4 4v-1a4 4 0 01-4-4h-.01M3 21h18a2 2 0 002-2v-4a2 2 0 00-2-2H3a2 2 0 00-2 2v4a2 2 0 002 2z"/></svg>
-                    <span class="mt-1">Bowls</span>
-                </a>
-                <a href="#soup" class="flex flex-col items-center text-xs text-gray-700 hover:text-primary transition-colors px-1">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5a2 2 0 00-2 2v2a2 2 0 002 2h14a2 2 0 002-2v-2a2 2 0 00-2-2zM7 7h10M7 3h10M4 21h16"/></svg>
-                    <span class="mt-1">Soup</span>
-                </a>
-                 <a href="#sides" class="flex flex-col items-center text-xs text-gray-700 hover:text-primary transition-colors px-1">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 19l2-2m2-2l2-2m4 4l2-2m2-2l2-2M5 19h14"/></svg>
-                    <span class="mt-1">Sides</span>
-                </a>
-            </div>
+  <!-- Gallery -->
+  <section id="gallery" class="max-w-6xl mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold text-center text-red-600 mb-10">Gallery</h2>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+      <img src="images/gallery1.jpg" alt="Restaurant interior" loading="lazy" class="rounded-lg shadow-md">
+      <img src="images/gallery2.jpg" alt="Delicious meal" loading="lazy" class="rounded-lg shadow-md">
+      <img src="images/gallery3.jpg" alt="Bakery treats" loading="lazy" class="rounded-lg shadow-md">
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="bg-gray-100 py-16">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold text-red-600 mb-10">What Our Customers Say</h2>
+      <div class="grid gap-8 md:grid-cols-3">
+        <div class="bg-white p-6 rounded-xl shadow-md">
+          <p class="italic mb-4">"Best Jollof in Ogun, hands down! Always fresh and affordable."</p>
+          <p class="font-semibold text-yellow-600">— Mary K.</p>
         </div>
-        
-        <!-- Menu Categories Section -->
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            
-            <!-- Category: Regular (Rice, Beans, Stews) -->
-            <section id="regular" class="col-span-1 lg:col-span-3 pt-4 mb-8">
-                <h3 class="text-3xl font-bold text-gray-800 border-b-4 border-secondary pb-2 mb-6 inline-block">Staples & Main Bases</h3>
-                <p class="text-gray-500 mb-6">Start your meal here. Add your choice of protein or side from the sections below.</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                    
-                    <!-- Item 1: Jollof Rice (Image included) -->
-                    <div class="menu-link bg-card p-4 rounded-xl shadow-lg flex flex-col items-center text-center transition duration-300 ease-in-out hover:shadow-xl border border-gray-100">
-                        <img src="images/jollof.jpg" alt="Jollof Rice" class="w-full h-24 object-cover rounded-lg mb-3">
-                        <div class="flex justify-between w-full items-center">
-                            <p class="text-lg font-semibold text-gray-800">Jollof Rice</p>
-                            <p class="text-xl font-bold text-primary">N1,500</p>
-                        </div>
-                        <p class="text-sm text-gray-500 mt-1 w-full text-left">Smoked party-style rice.</p>
-                    </div>
-                    
-                    <!-- Item 2: Fried Rice (Image included) -->
-                    <div class="menu-link bg-card p-4 rounded-xl shadow-lg flex flex-col items-center text-center transition duration-300 ease-in-out hover:shadow-xl border border-gray-100">
-                        <img src="https://placehold.co/120x80/DC2626/FFFFFF?text=Fried" alt="Fried Rice" class="w-full h-24 object-cover rounded-lg mb-3">
-                        <div class="flex justify-between w-full items-center">
-                            <p class="text-lg font-semibold text-gray-800">Fried Rice</p>
-                            <p class="text-xl font-bold text-primary">N1,500</p>
-                        </div>
-                        <p class="text-sm text-gray-500 mt-1 w-full text-left">Stir-fried rice with veggies.</p>
-                    </div>
-
-                    <!-- Item 3: White Rice (Image included) -->
-                    <div class="menu-link bg-card p-4 rounded-xl shadow-lg flex flex-col items-center text-center transition duration-300 ease-in-out hover:shadow-xl border border-gray-100">
-                        <img src="https://placehold.co/120x80/DC2626/FFFFFF?text=White" alt="White Rice" class="w-full h-24 object-cover rounded-lg mb-3">
-                        <div class="flex justify-between w-full items-center">
-                            <p class="text-lg font-semibold text-gray-800">White Rice</p>
-                            <p class="text-xl font-bold text-primary">N600</p>
-                        </div>
-                        <p class="text-sm text-gray-500 mt-1 w-full text-left">Served plain with stew/sauce.</p>
-                    </div>
-
-                    <!-- Item 4: Beans (Image included) -->
-                    <div class="menu-link bg-card p-4 rounded-xl shadow-lg flex flex-col items-center text-center transition duration-300 ease-in-out hover:shadow-xl border border-gray-100">
-                        <img src="https://placehold.co/120x80/DC2626/FFFFFF?text=Beans" alt="Beans" class="w-full h-24 object-cover rounded-lg mb-3">
-                        <div class="flex justify-between w-full items-center">
-                            <p class="text-lg font-semibold text-gray-800">Ewa Agoyin</p>
-                            <p class="text-xl font-bold text-primary">N800</p>
-                        </div>
-                        <p class="text-sm text-gray-500 mt-1 w-full text-left">Mashed beans in rich pepper sauce.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Category: Proteins (New Detailed Section) -->
-            <section id="proteins" class="col-span-1 lg:col-span-3 pt-4 mb-8">
-                <h3 class="text-3xl font-bold text-gray-800 border-b-4 border-secondary pb-2 mb-6 inline-block">Proteins & Meats (Add-ons)</h3>
-                <p class="text-gray-500 mb-6">Complete your plate with your favorite grilled or fried protein.</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                    
-                    <!-- Protein Item 1: Chicken -->
-                    <div class="bg-card p-4 rounded-xl shadow-lg flex flex-col items-center text-center transition duration-300 ease-in-out hover:shadow-xl border border-gray-100">
-                        <img src="https://placehold.co/100x70/FBBF24/DC2626?text=Chicken" alt="Chicken Piece" class="w-full h-20 object-cover rounded-lg mb-2">
-                        <div class="flex justify-between w-full items-center">
-                            <p class="text-lg font-semibold text-gray-800">Chicken (Fried/Grilled)</p>
-                            <p class="text-xl font-bold text-primary">N3,000</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Protein Item 2: Turkey -->
-                    <div class="bg-card p-4 rounded-xl shadow-lg flex flex-col items-center text-center transition duration-300 ease-in-out hover:shadow-xl border border-gray-100">
-                        <img src="https://placehold.co/100x70/FBBF24/DC2626?text=Turkey" alt="Turkey Piece" class="w-full h-20 object-cover rounded-lg mb-2">
-                        <div class="flex justify-between w-full items-center">
-                            <p class="text-lg font-semibold text-gray-800">Turkey (Fried/Grilled)</p>
-                            <p class="text-xl font-bold text-primary">N4,000</p>
-                        </div>
-                    </div>
-
-                    <!-- Protein Item 3: Fish -->
-                    <div class="bg-card p-4 rounded-xl shadow-lg flex flex-col items-center text-center transition duration-300 ease-in-out hover:shadow-xl border border-gray-100">
-                        <img src="https://placehold.co/100x70/FBBF24/DC2626?text=Fish" alt="Croaker Fish" class="w-full h-20 object-cover rounded-lg mb-2">
-                        <div class="flex justify-between w-full items-center">
-                            <p class="text-lg font-semibold text-gray-800">Croaker Fish</p>
-                            <p class="text-xl font-bold text-primary">N3,000</p>
-                        </div>
-                    </div>
-
-                    <!-- Protein Item 4: Goat Meat -->
-                    <div class="bg-card p-4 rounded-xl shadow-lg flex flex-col items-center text-center transition duration-300 ease-in-out hover:shadow-xl border border-gray-100">
-                        <img src="https://placehold.co/100x70/FBBF24/DC2626?text=Goat" alt="Goat Meat" class="w-full h-20 object-cover rounded-lg mb-2">
-                        <div class="flex justify-between w-full items-center">
-                            <p class="text-lg font-semibold text-gray-800">Goat Meat</p>
-                            <p class="text-xl font-bold text-primary">N2,000</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Category: Ready-to-Go Bowls (Image included) -->
-            <section id="bowls" class="col-span-1 lg:col-span-3 pt-4 mb-8">
-                <h3 class="text-3xl font-bold text-gray-800 border-b-4 border-secondary pb-2 mb-6 inline-block">Ready-to-Go Bowls</h3>
-                <p class="text-gray-500 mb-6">Hearty, convenient meals served in bowls for easy eating on the go.</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    <!-- Bowl Item 1 -->
-                    <div class="menu-link bg-card p-4 rounded-xl shadow-lg flex flex-col items-center text-center transition duration-300 ease-in-out hover:shadow-xl border border-gray-100">
-                        <img src="https://placehold.co/150x100/FBBF24/DC2626?text=Bowl+A" alt="Jollof Chicken Bowl" class="w-full h-32 object-cover rounded-lg mb-3">
-                        <p class="text-xl font-semibold text-gray-800">Jollof & Chicken Bowl</p>
-                        <p class="text-sm text-gray-500 mt-1">Jollof Rice topped with stew and one piece of fried chicken.</p>
-                        <p class="text-2xl font-bold text-primary mt-2">N3,500</p>
-                    </div>
-                    <!-- Bowl Item 2 -->
-                    <div class="menu-link bg-card p-4 rounded-xl shadow-lg flex flex-col items-center text-center transition duration-300 ease-in-out hover:shadow-xl border border-gray-100">
-                        <img src="https://placehold.co/150x100/FBBF24/DC2626?text=Bowl+B" alt="Noodles Special Bowl" class="w-full h-32 object-cover rounded-lg mb-3">
-                        <p class="text-xl font-semibold text-gray-800">Noodles Special Bowl</p>
-                        <p class="text-sm text-gray-500 mt-1">Xtabel special noodles mixed with shredded beef and veggies.</p>
-                        <p class="text-2xl font-bold text-primary mt-2">N2,500</p>
-                    </div>
-                    <!-- Bowl Item 3 -->
-                    <div class="menu-link bg-card p-4 rounded-xl shadow-lg flex flex-col items-center text-center transition duration-300 ease-in-out hover:shadow-xl border border-gray-100">
-                        <img src="https://placehold.co/150x100/FBBF24/DC2626?text=Bowl+C" alt="Beans and Plantain Bowl" class="w-full h-32 object-cover rounded-lg mb-3">
-                        <p class="text-xl font-semibold text-gray-800">Beans & Plantain Bowl</p>
-                        <p class="text-sm text-gray-500 mt-1">Ewa Agoyin (mashed beans) served with rich sauce and plantain chunks.</p>
-                        <p class="text-2xl font-bold text-primary mt-2">N1,800</p>
-                    </div>
-                </div>
-            </section>
-
-
-            <!-- Category: Soups & Swallow (Image included) -->
-            <section id="soup" class="col-span-1 lg:col-span-3 pt-4 mb-8">
-                <h3 class="text-3xl font-bold text-gray-800 border-b-4 border-secondary pb-2 mb-6 inline-block">Soups & Swallow</h3>
-                <p class="text-gray-500 mb-6">Enjoy our traditional soups served with your favorite swallow.</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    <!-- Soups Block -->
-                    <div class="space-y-4">
-                         <h4 class="text-xl font-semibold text-gray-700 border-b border-gray-200 pb-2">Soups (Per Serving)</h4>
-                         <!-- Egusi Soup -->
-                         <div class="menu-link bg-card p-4 rounded-xl shadow-lg flex items-center transition duration-300 ease-in-out hover:shadow-xl border border-gray-100">
-                            <img src="https://placehold.co/80x50/DC2626/FFFFFF?text=Soup" alt="Egusi Soup" class="w-16 h-12 object-cover rounded-lg mr-4 flex-shrink-0">
-                            <p class="text-lg font-medium text-gray-800 flex-grow text-left">Egusi Soup</p>
-                            <p class="text-lg font-bold text-primary ml-4 flex-shrink-0">N500</p>
-                        </div>
-                        <!-- Efo Riro Soup -->
-                        <div class="menu-link bg-card p-4 rounded-xl shadow-lg flex items-center transition duration-300 ease-in-out hover:shadow-xl border border-gray-100">
-                            <img src="https://placehold.co/80x50/DC2626/FFFFFF?text=Efo" alt="Efo Riro Soup" class="w-16 h-12 object-cover rounded-lg mr-4 flex-shrink-0">
-                            <p class="text-lg font-medium text-gray-800 flex-grow text-left">Efo Riro Soup</p>
-                            <p class="text-lg font-bold text-primary ml-4 flex-shrink-0">N1,000</p>
-                        </div>
-                        <!-- Ogbono Soup -->
-                        <div class="menu-link bg-card p-4 rounded-xl shadow-lg flex items-center transition duration-300 ease-in-out hover:shadow-xl border border-gray-100">
-                            <img src="https://placehold.co/80x50/DC2626/FFFFFF?text=Ogbono" alt="Ogbono Soup" class="w-16 h-12 object-cover rounded-lg mr-4 flex-shrink-0">
-                            <p class="text-lg font-medium text-gray-800 flex-grow text-left">Ogbono Soup</p>
-                            <p class="text-lg font-bold text-primary ml-4 flex-shrink-0">N800</p>
-                        </div>
-                         <!-- Okro Soup -->
-                         <div class="menu-link bg-card p-4 rounded-xl shadow-lg flex items-center transition duration-300 ease-in-out hover:shadow-xl border border-gray-100">
-                            <img src="https://placehold.co/80x50/DC2626/FFFFFF?text=Okro" alt="Okro Soup" class="w-16 h-12 object-cover rounded-lg mr-4 flex-shrink-0">
-                            <p class="text-lg font-medium text-gray-800 flex-grow text-left">Okro Soup</p>
-                            <p class="text-lg font-bold text-primary ml-4 flex-shrink-0">N800</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Swallow Block -->
-                    <div class="space-y-4">
-                        <h4 class="text-xl font-semibold text-gray-700 border-b border-gray-200 pb-2">Swallow (Per Wrap/Ball)</h4>
-                        <!-- Pounded Yam -->
-                        <div class="menu-link bg-card p-4 rounded-xl shadow-lg flex items-center transition duration-300 ease-in-out hover:shadow-xl border border-gray-100">
-                            <img src="https://placehold.co/80x50/FBBF24/DC2626?text=Swallow" alt="Pounded Yam" class="w-16 h-12 object-cover rounded-lg mr-4 flex-shrink-0">
-                            <p class="text-lg font-medium text-gray-800 flex-grow text-left">Pounded Yam</p>
-                            <p class="text-lg font-bold text-primary ml-4 flex-shrink-0">N500</p>
-                        </div>
-                        <!-- Eba / Fufu / Amala -->
-                        <div class="menu-link bg-card p-4 rounded-xl shadow-lg flex items-center transition duration-300 ease-in-out hover:shadow-xl border border-gray-100">
-                            <img src="https://placehold.co/80x50/FBBF24/DC2626?text=Eba" alt="Eba Fufu Amala" class="w-16 h-12 object-cover rounded-lg mr-4 flex-shrink-0">
-                            <p class="text-lg font-medium text-gray-800 flex-grow text-left">Eba / Fufu / Amala</p>
-                            <p class="text-lg font-bold text-primary ml-4 flex-shrink-0">N300</p>
-                        </div>
-                        <!-- Wheat / Semo -->
-                        <div class="menu-link bg-card p-4 rounded-xl shadow-lg flex items-center transition duration-300 ease-in-out hover:shadow-xl border border-gray-100">
-                            <img src="https://placehold.co/80x50/FBBF24/DC2626?text=Semo" alt="Wheat Semo" class="w-16 h-12 object-cover rounded-lg mr-4 flex-shrink-0">
-                            <p class="text-lg font-medium text-gray-800 flex-grow text-left">Wheat / Semo</p>
-                            <p class="text-lg font-bold text-primary ml-4 flex-shrink-0">N400</p>
-                        </div>
-                    </div>
-
-                    <!-- Chef Specials Block (Updated with Images) -->
-                    <div class="space-y-4">
-                         <h4 class="text-xl font-extrabold text-primary border-b-2 border-primary pb-2">CHEF'S SIGNATURE SPECIALS</h4>
-                         <!-- Amala Special -->
-                         <div class="bg-primary/90 text-white p-4 rounded-xl shadow-xl flex flex-col items-center border-4 border-secondary/50">
-                             <img 
-                                src="https://placehold.co/150x100/DC2626/FFFFFF?text=Amala+Special" 
-                                alt="Amala Special Dish" 
-                                class="w-full h-24 object-cover rounded-lg mb-3 shadow-md">
-                            <p class="text-xl font-extrabold">Amala Special</p>
-                            <p class="text-sm font-light mt-1 text-gray-200">Amala served with Gbegiri & Ewedu Soup.</p>
-                            <p class="text-2xl font-extrabold mt-2 text-secondary">N1,200</p>
-                        </div>
-                        <!-- Yam Pottage -->
-                        <div class="bg-card text-gray-800 p-4 rounded-xl shadow-xl flex flex-col items-center border-4 border-gray-200">
-                            <img 
-                                src="https://placehold.co/150x100/FBBF24/DC2626?text=Pottage" 
-                                alt="Yam Pottage Asaro" 
-                                class="w-full h-24 object-cover rounded-lg mb-3 shadow-md">
-                            <p class="text-xl font-extrabold text-gray-900">Yam Pottage (Asaro)</p>
-                            <p class="text-sm font-medium mt-1 text-gray-600">Rich cooked yam porridge.</p>
-                            <p class="text-2xl font-extrabold mt-2 text-primary">N1,000</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Category: Sides (Image included) -->
-            <section id="sides" class="col-span-1 lg:col-span-3 pt-4 mb-8">
-                <h3 class="text-3xl font-bold text-gray-800 border-b-4 border-secondary pb-2 mb-6 inline-block">Side Dishes</h3>
-                <p class="text-gray-500 mb-6">Enhance your meal with a tasty side.</p>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                    
-                    <!-- Side Item 1: Fried Plantain -->
-                    <div class="bg-card p-4 rounded-xl shadow-lg transition duration-300 ease-in-out hover:shadow-xl border border-gray-100 flex flex-col items-center text-center">
-                        <img src="https://placehold.co/100x70/DC2626/FFFFFF?text=Plantain" alt="Fried Plantain" class="w-full h-auto object-cover rounded-lg mb-2">
-                        <div class="flex justify-between w-full">
-                            <p class="text-lg font-medium text-gray-800">Fried Plantain</p>
-                            <p class="text-lg font-bold text-primary">N300</p>
-                        </div>
-                    </div>
-                    <!-- Side Item 2: Moi Moi -->
-                    <div class="bg-card p-4 rounded-xl shadow-lg transition duration-300 ease-in-out hover:shadow-xl border border-gray-100 flex flex-col items-center text-center">
-                        <img src="https://placehold.co/100x70/DC2626/FFFFFF?text=Moi+Moi" alt="Moi Moi Wrapped" class="w-full h-auto object-cover rounded-lg mb-2">
-                        <div class="flex justify-between w-full">
-                            <p class="text-lg font-medium text-gray-800">Moi Moi (Wrapped)</p>
-                            <p class="text-lg font-bold text-primary">N1,000</p>
-                        </div>
-                    </div>
-                    <!-- Side Item 3: Salad -->
-                    <div class="bg-card p-4 rounded-xl shadow-lg transition duration-300 ease-in-out hover:shadow-xl border border-gray-100 flex flex-col items-center text-center">
-                        <img src="https://placehold.co/100x70/DC2626/FFFFFF?text=Salad" alt="Salad Small" class="w-full h-auto object-cover rounded-lg mb-2">
-                        <div class="flex justify-between w-full">
-                            <p class="text-lg font-medium text-gray-800">Salad (Small)</p>
-                            <p class="text-lg font-bold text-primary">N500</p>
-                        </div>
-                    </div>
-                    <!-- Side Item 4: Assorted Peppers -->
-                    <div class="bg-card p-4 rounded-xl shadow-lg transition duration-300 ease-in-out hover:shadow-xl border border-gray-100 flex flex-col items-center text-center">
-                        <img src="https://placehold.co/100x70/DC2626/FFFFFF?text=Pepper" alt="Assorted Peppers" class="w-full h-auto object-cover rounded-lg mb-2">
-                        <div class="flex justify-between w-full">
-                            <p class="text-lg font-medium text-gray-800">Assorted Peppers</p>
-                            <p class="text-lg font-bold text-primary">N300</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- Category: Drinks (No image required for this layout) -->
-            <section id="drinks" class="col-span-1 lg:col-span-3 pt-4 mb-8">
-                <h3 class="text-3xl font-bold text-gray-800 border-b-4 border-secondary pb-2 mb-6 inline-block">Beverages & Drinks</h3>
-                <p class="text-gray-500 mb-6">Quench your thirst with our selection of cool and refreshing drinks.</p>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                    
-                    <!-- Drink Item 1 -->
-                    <div class="bg-card p-4 rounded-xl shadow-lg transition duration-300 ease-in-out hover:shadow-xl border border-gray-100 flex justify-between items-center">
-                        <p class="text-lg font-semibold text-gray-800">Bottled Water</p>
-                        <p class="text-lg font-bold text-primary">N400</p>
-                    </div>
-                    <!-- Drink Item 2 -->
-                    <div class="bg-card p-4 rounded-xl shadow-lg transition duration-300 ease-in-out hover:shadow-xl border border-gray-100 flex justify-between items-center">
-                        <p class="text-lg font-semibold text-gray-800">Soft Drinks (Sodas)</p>
-                        <p class="text-lg font-bold text-primary">N700</p>
-                    </div>
-                    <!-- Drink Item 3 -->
-                    <div class="bg-card p-4 rounded-xl shadow-lg transition duration-300 ease-in-out hover:shadow-xl border border-gray-100 flex justify-between items-center">
-                        <p class="text-lg font-semibold text-gray-800">Chi Exotic Juice (Can)</p>
-                        <p class="text-lg font-bold text-primary">N800</p>
-                    </div>
-                    <!-- Drink Item 4 -->
-                    <div class="bg-card p-4 rounded-xl shadow-lg transition duration-300 ease-in-out hover:shadow-xl border border-gray-100 flex justify-between items-center">
-                        <p class="text-lg font-semibold text-gray-800">Malt Drinks</p>
-                        <p class="text-lg font-bold text-primary">N800</p>
-                    </div>
-                </div>
-            </section>
-            
+        <div class="bg-white p-6 rounded-xl shadow-md">
+          <p class="italic mb-4">"Their Amala reminds me of home. Customer service is excellent too."</p>
+          <p class="font-semibold text-yellow-600">— Ibrahim O.</p>
         </div>
-
-        <!-- --- -->
-
-        <!-- Customer Testimonials Section (New) -->
-        <section class="mt-12 py-10 bg-white rounded-xl shadow-2xl">
-            <h3 class="text-3xl font-bold text-center text-gray-800 mb-10">What Our Customers Say</h3>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto px-4">
-                
-                <!-- START OF TESTIMONIAL ITEM -->
-                <div class="bg-background p-6 rounded-xl shadow-md border-t-4 border-secondary">
-                    <p class="text-lg italic text-gray-700 mb-4">"The Pounded Yam here is always fresh and soft. It truly feels like a home-cooked meal! This is my go-to lunch spot in Ota."</p>
-                    <p class="font-semibold text-primary">— Samuel A.</p>
-                </div>
-                <!-- END OF TESTIMONIAL ITEM -->
-
-                <!-- START OF TESTIMONIAL ITEM -->
-                <div class="bg-background p-6 rounded-xl shadow-md border-t-4 border-secondary">
-                    <p class="text-lg italic text-gray-700 mb-4">"Their Fried Rice is the absolute best—perfect flavor balance and the portions are very generous. Great value for the price!"</p>
-                    <p class="font-semibold text-primary">— Chisom E.</p>
-                </div>
-                <!-- START OF TESTIMONIAL ITEM -->
-                <div class="bg-background p-6 rounded-xl shadow-md border-t-4 border-secondary">
-                    <p class="text-lg italic text-gray-700 mb-4">"Ordering via WhatsApp is so fast and reliable. My food is always ready for pickup or delivery right on time. Highly recommended."</p>
-                    <p class="font-semibold text-primary">— Tayo O.</p>
-                </div>
-                <!-- START OF TESTIMONIAL ITEM -->
-                <div class="bg-background p-6 rounded-xl shadow-md border-t-4 border-secondary">
-                    <p class="text-lg italic text-gray-700 mb-4">"I love the Amala Special! It's their signature dish for a reason. The whole experience at 3BEE is clean and welcoming."</p>
-                    <p class="font-semibold text-primary">— Nkechi P.</p>
-                </div>
-
-                <!--
-                    TO ADD A NEW TESTIMONIAL:
-                    1. Copy the entire 'div' block starting with '<!-- START OF TESTIMONIAL ITEM -->'
-                    2. Paste it above the last testimonial.
-                    3. Update the text within the <p class="text-lg italic text-gray-700..."></p> tags.
-                    4. Update the name within the <p class="font-semibold text-primary">...</p> tags.
-                -->
-                
-            </div>
-        </section>
-        
-    </main>
-
-    <!-- FOOTER WITH ABOUT US AND CONTACT DETAILS -->
-    <footer class="bg-gray-800 text-white p-6 text-center">
-        <!-- About Us Content -->
-        <div class="max-w-4xl mx-auto mb-6 pb-4 border-b border-gray-700">
-            <h4 class="text-2xl font-bold text-secondary mb-2">About 3BEE</h4>
-            <p class="text-sm leading-relaxed text-gray-300">
-                No. 1 food vendor and catering service in **Ota**. We serve delicious, budget-friendly Nigerian meals that bring the comfort of home to your plate. Everyday dishes, our food is made with care and packed with authentic flavor. Available **Monday to Saturday, 8 AM to 8 PM**, we’re here for your quick lunch, family dinner, or special event. Whatever the occasion, count on us for great taste, reliable service, and unbeatable value.
-            </p>
+        <div class="bg-white p-6 rounded-xl shadow-md">
+          <p class="italic mb-4">"Great atmosphere and food. I love bringing my family here every weekend."</p>
+          <p class="font-semibold text-yellow-600">— Chidera A.</p>
         </div>
-        
-        <div class="pt-4">
-             <p class="text-sm mt-1">
-                <span class="font-bold text-secondary">Location:</span> 100 Iganmode Road, beside Hardel Pharmacy Ltd, Ota, Ogun State.
-            </p>
-            <p class="text-sm mt-1">
-                <span class="font-bold text-secondary">WhatsApp:</span> <a href="https://wa.me/2348124357977" target="_blank" class="hover:underline">+234 812 435 7977</a>
-            </p>
-            <p class="text-xs mt-3 font-medium text-gray-400">&copy; 2025 3BEE Restaurants & Bakery. All rights reserved.</p>
-        </div>
-    </footer>
+      </div>
+    </div>
+  </section>
 
+  <!-- Contact -->
+  <section id="contact" class="max-w-6xl mx-auto px-4 py-16 text-center">
+    <h2 class="text-3xl font-bold text-red-600 mb-6">Contact Us</h2>
+    <p class="mb-2">📍 Ota, Ogun State</p>
+    <p class="mb-2">☎️ 0812 435 7977</p>
+    <p class="mb-6">⏰ Mon - Sat: 8:00 AM - 8:00 PM</p>
+    <a href="https://wa.me/2348124357977" class="px-6 py-3 text-lg font-semibold bg-green-500 text-white rounded-full shadow-md hover:bg-green-600 transition">
+      Chat on WhatsApp
+    </a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="mt-12 py-6 bg-gray-900 text-gray-300 text-center">
+    <p class="mb-2">📍 Ota, Ogun State | ⏰ Mon - Sat: 8:00 AM - 8:00 PM</p>
+    <p class="mb-2">☎️ 0812 435 7977 | 🍴 3BEE Restaurant & Bakery</p>
+    <p class="text-sm text-gray-500">&copy; 2025 3BEE Restaurants. All rights reserved.</p>
+  </footer>
+
+  <!-- JS for Mobile Menu -->
+  <script>
+    const toggleBtn = document.getElementById("menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const links = mobileMenu.querySelectorAll("a");
+
+    toggleBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    // Close mobile menu after clicking a link
+    links.forEach(link => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+      });
+    });
+  </script>
 </body>
 </html>

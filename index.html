@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- NEW: Meta Description for Search Engines and Social Sharing -->
+    <meta name="description" content="No. 1 food vendor in Ota, Ogun State. 3BEE serves authentic, budget-friendly Nigerian meals: Jollof, Amala, Soups, and Ready-to-Go Bowls. Order via WhatsApp.">
     <title>3BEE 🐝 Restaurants & Bakery - Official Menu</title>
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -27,6 +29,34 @@
             flex: 1;
             min-width: 0;
         }
+
+        /* Styles for the simple image carousel/gallery */
+        .gallery-container {
+            position: relative;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .gallery-image {
+            display: none;
+            width: 100%;
+            height: 48vh; /* Fluid height for visual appeal */
+            object-fit: cover;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+        }
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 0.5rem;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            text-align: center;
+            border-bottom-left-radius: 1rem;
+            border-bottom-right-radius: 1rem;
+        }
+        
     </style>
 </head>
 <body class="antialiased">
@@ -90,15 +120,57 @@
             </p>
         </section>
 
-        <!-- Restaurant Image Section -->
-        <section class="mb-12 rounded-xl overflow-hidden shadow-2xl">
-             <img 
-                src="https://placehold.co/1200x400/DC2626/FFFFFF?text=3BEE+Restaurant+Front" 
-                alt="Exterior or interior photo of 3BEE Restaurants & Bakery" 
-                class="w-full h-48 sm:h-80 object-cover"
-                onerror="this.onerror=null; this.src='https://placehold.co/1200x400/DC2626/FFFFFF?text=3BEE+Restaurant+Front';"
-            >
-             <p class="text-center text-gray-600 py-3 bg-white text-sm">Welcome to 3BEE, your favorite spot in Ota!</p>
+        <!-- Restaurant Image Gallery (Updated to include Dine-in Image) -->
+        <section class="mb-12">
+            <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">Come Dine With Us!</h3>
+            <div class="gallery-container rounded-xl overflow-hidden shadow-2xl">
+                <!-- Gallery Image 1: Dine-in Interior -->
+                <img 
+                    id="gallery-img-1" 
+                    src="uploaded:1000276873.jpg-94554b35-8a44-420b-90fe-4d73ab73871b" 
+                    alt="Cozy Dine-in Restaurant Interior at 3BEE" 
+                    class="gallery-image"
+                >
+                <div id="gallery-cap-1" class="gallery-caption">Enjoy fresh meals served in a cozy indoor dining setting.</div>
+                
+                <!-- Gallery Image 2: Restaurant Front/Exterior -->
+                <img 
+                    id="gallery-img-2" 
+                    src="https://placehold.co/1200x400/DC2626/FFFFFF?text=3BEE+Restaurant+Front" 
+                    alt="Exterior view of 3BEE Restaurants & Bakery" 
+                    class="gallery-image"
+                >
+                <div id="gallery-cap-2" class="gallery-caption">Welcome to 3BEE, your favorite spot in Ota!</div>
+
+                <!-- JavaScript for Gallery/Carousel -->
+                <script>
+                    let currentGalleryIndex = 0;
+                    const images = document.querySelectorAll('.gallery-image');
+                    const captions = document.querySelectorAll('.gallery-caption');
+                    const totalImages = images.length;
+
+                    function showGalleryImage(index) {
+                        images.forEach(img => img.style.display = 'none');
+                        captions.forEach(cap => cap.style.display = 'none');
+                        
+                        images[index].style.display = 'block';
+                        captions[index].style.display = 'block';
+                    }
+
+                    function nextGalleryImage() {
+                        currentGalleryIndex = (currentGalleryIndex + 1) % totalImages;
+                        showGalleryImage(currentGalleryIndex);
+                    }
+
+                    // Show the first image immediately
+                    if (totalImages > 0) {
+                        showGalleryImage(0);
+                    }
+                    
+                    // Set an automatic timer to cycle images every 4 seconds
+                    setInterval(nextGalleryImage, 4000); 
+                </script>
+            </div>
         </section>
 
 
@@ -119,7 +191,7 @@
         <div id="mobile-nav" class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-40 shadow-2xl">
             <div class="flex justify-around py-3">
                 <a href="#regular" class="flex flex-col items-center text-xs text-gray-700 hover:text-primary transition-colors px-1">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c1.657 0 3 .895 3 2s-1.343 2-3 2-3 .895-3 2-1.343 2-3 2M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c1.657 0 3 .895 3 2s-1.343 2-3 2-3 .895-3 2-1.343 2-3 2M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                     <span class="mt-1">Staples</span>
                 </a>
                 <a href="#proteins" class="flex flex-col items-center text-xs text-gray-700 hover:text-primary transition-colors px-1">
